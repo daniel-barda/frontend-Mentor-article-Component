@@ -165,6 +165,7 @@ body {
   .card__image {
     grid-column: 1/ -1;
     background-position: left top;
+    border-radius: 12px 12px 0 0;
   }
 
   .card__content {
