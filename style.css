@@ -1,0 +1,215 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap");
+
+:root {
+  --Very-Dark-Grayish-Blue: hsl(217, 19%, 35%);
+  --Desaturated-Dark-Blue: hsl(214, 17%, 51%);
+  --Grayish-Blue: hsl(212, 23%, 69%);
+  --Light-Grayish-Blue: hsl(210, 46%, 95%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Manrope", sans-serif;
+  font-size: 1.3rem;
+  font-weight: 400;
+  background-color: var(--Light-Grayish-Blue);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+.card {
+  position: relative;
+  width: 80rem;
+  background-color: #fff;
+  box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.2);
+
+  border-radius: 12px;
+  color: var(--Desaturated-Dark-Blue);
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+}
+
+.card__image {
+  background-image: url("images/drawers.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: left center;
+  grid-column: span 2;
+  border-radius: 12px 0 0 12px;
+}
+
+.card__content {
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  grid-column: span 3;
+}
+
+.card__header {
+  color: var(--Very-Dark-Grayish-Blue);
+  font-weight: 800;
+  font-size: 2.4rem;
+  letter-spacing: 1px;
+}
+
+.card__intro {
+  letter-spacing: 1px;
+}
+
+.card__post-meta {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.card__post-meta__img {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+}
+
+.card__post-meta__author {
+  color: var(--Very-Dark-Grayish-Blue);
+  font-weight: 800;
+  margin-bottom: 0.2rem;
+}
+
+.card__post-meta__button {
+  margin-left: auto;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  width: 4rem;
+  height: 4rem;
+}
+
+.card__share {
+  position: absolute;
+  top: 14rem;
+  right: -7rem;
+  background-color: var(--Very-Dark-Grayish-Blue);
+  width: 31%;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 1.6rem 3.5rem;
+  border-radius: 12px;
+  color: var(--Light-Grayish-Blue);
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.card__share::after {
+  content: "";
+  display: block;
+  background-color: var(--Very-Dark-Grayish-Blue);
+  width: 4rem;
+  height: 3rem;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  -webkit-clip-path: polygon(50% 100%, 0 0, 100% 0);
+  clip-path: polygon(50% 100%, 0 0, 100% 0);
+}
+
+.card__post-meta.visible .card__share {
+  pointer-events: all;
+  visibility: visible;
+  opacity: 1;
+}
+
+.card__share p {
+  color: var(--Grayish-Blue);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.card__list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* 980px === 61.25em */
+
+@media only screen and (max-width: 61.25em) {
+  html {
+    font-size: 52.48%;
+  }
+}
+
+/* 839px === 52.4375em */
+@media only screen and (max-width: 52.4375em) {
+  .card {
+    grid-template-rows: 35vh;
+  }
+
+  .card__image {
+    grid-column: 1/ -1;
+    background-position: left top;
+  }
+
+  .card__content {
+    grid-column: 1/ -1;
+    grid-row: 2;
+  }
+
+  .card__post-meta {
+    border-radius: 0 0 12px 12px;
+    padding: 1rem;
+  }
+
+  .card__post-meta.visible {
+    background-color: var(--Very-Dark-Grayish-Blue);
+    justify-content: space-between;
+  }
+
+  .card__post-meta.visible .card__post-meta-wrapper,
+  .card__post-meta.visible .card__post-meta__img {
+    display: none;
+  }
+
+  .card__share {
+    position: unset;
+    background-color: unset;
+  }
+
+  .card__content {
+    padding: 0;
+  }
+
+  .header {
+    padding: 3rem;
+  }
+  .card__share::after {
+    display: none;
+  }
+
+  .card__post-meta.visible .card__post-meta__button {
+    position: unset;
+    margin: 0;
+    background-color: var(--Desaturated-Dark-Blue);
+  }
+
+  .card__post-meta.visible .card__icon--share {
+    fill: var(--Light-Grayish-Blue);
+  }
+}
