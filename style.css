@@ -113,7 +113,7 @@ body {
   pointer-events: none;
   visibility: hidden;
   opacity: 0;
-   display: none;
+  display: none;
 }
 
 .card__share::after {
@@ -134,7 +134,8 @@ body {
   pointer-events: all;
   visibility: visible;
   opacity: 1;
-   display: inline-block;
+  display: flex;
+  align-items: center;
 }
 
 .card__share p {
